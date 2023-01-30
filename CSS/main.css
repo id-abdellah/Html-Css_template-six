@@ -1,0 +1,428 @@
+/* ====================================
+    Variables
+=====================================*/
+:root {
+    --mainColor: hsl(193, 100%, 49%);
+    --secondSectionColor: hsl(0, 0%, 96%);
+    --textColor: #231f20;
+    --altTextColor: #637988;
+    --sectionPaddingBlock: 150px;
+
+}
+
+
+/* ====================================
+    Global Rules
+=====================================*/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.container {
+    padding-inline: 15px;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* ====================================
+    Components
+=====================================*/
+.titel {
+    text-transform: uppercase;
+    color: var(--textColor);
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 26px;
+    position: relative;
+}
+
+.titel::after {
+    content: url(../Images/svg/separator.svg);
+    display: block;
+    margin-top: 40px;
+}
+
+
+/* ====================================
+    Header Section
+=====================================*/
+
+header {
+    height: 100vh;
+    position: relative;
+    background-image: url(../Images/header.jpg);
+    background-size: cover;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0, 0%, 0%, 0.8);
+}
+
+header nav {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 18px;
+}
+
+header nav .container img {
+    width: 150px;
+}
+
+header nav .container .links {
+    display: flex;
+    align-items: center;
+}
+
+header nav .container .links i {
+    font-size: 24px;
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    header nav .container .links i {
+        display: flex;
+        padding-right: 10px;
+    }
+
+    header nav .container .links i:hover+ul {
+        display: flex;
+    }
+}
+
+header nav .container ul {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    header nav .container ul {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: white;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    header nav .container ul li {
+        padding-block: 10px;
+    }
+}
+
+header nav .container ul li a {
+    color: var(--textColor);
+    text-transform: capitalize;
+    transition: .3s;
+    padding-inline: 20px;
+}
+
+header nav .container ul li a:hover {
+    color: var(--mainColor);
+}
+
+header .infos {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+header .infos p {
+    color: white;
+    font-size: 14px;
+    font-size: 500;
+}
+
+header .infos h2 {
+    color: white;
+    font-size: 70px;
+    margin-block: 30px;
+    font-weight: 500;
+}
+
+@media (max-width: 575px) {
+    header .infos h2 {
+        font-size: 50px;
+        word-wrap: normal;
+    }
+}
+
+header .infos .btns {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+@media (max-width: 575px) {
+    header .infos .btns {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+header .infos .btns a {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+header .infos .btns a:first-child {
+    border: 1px solid white;
+}
+
+header .infos .btns a:first-child:hover {
+    background-color: white;
+    color: var(--textColor);
+}
+
+header .infos .btns a:last-child {
+    background-color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+}
+
+header .infos .btns a:last-child:hover {
+    background-color: white;
+    color: var(--mainColor);
+}
+
+header .bounce {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    animation: bouncing 1.5s infinite;
+}
+
+@keyframes bouncing {
+
+    10%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40%,
+    60% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+}
+
+/* ====================================
+    History + Portfolio Section
+=====================================*/
+.history {
+    padding: var(--sectionPaddingBlock) 0;
+    background-color: var(--secondSectionColor);
+}
+
+.history p {
+    color: var(--altTextColor);
+    text-align: center;
+    max-width: 800px;
+    margin-inline: auto;
+    margin-top: 40px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.portfolio {
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: var(--secondSectionColor);
+}
+
+.portfolio>div {
+    position: relative;
+    max-width: 400px;
+}
+
+.portfolio img {
+    display: block;
+}
+
+.portfolio>div:hover .card {
+    transform: translateY(0);
+}
+
+.portfolio div .card {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #04a3ce;
+    padding: 40px 20px;
+    text-align: center;
+    color: #f7fffa;
+    transition: .3s;
+    transform: translateY(100%);
+}
+
+.portfolio div .card h4 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.portfolio div .card p {
+    font-size: 13px;
+    margin-block: 50px;
+}
+
+.portfolio div .card .icons a {
+    color: white;
+    padding: 10px 20px;
+    margin-left: 5px;
+    transition: .3s;
+}
+
+.portfolio div .card .icons a:hover {
+    color: black;
+}
+
+/* ====================================
+    services Section
+=====================================*/
+.services {
+    padding-block: var(--sectionPaddingBlock);
+    background-color: var(--secondSectionColor);
+}
+
+.services .container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.services .container .box {
+    background-color: #fff;
+    padding: 50px;
+}
+
+.services .container .box h5 {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-block: 30px 40px;
+    position: relative;
+}
+
+.services .container .box h5::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: var(--mainColor);
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.services .container .box p {
+    color: var(--altTextColor);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ====================================
+    Clients Section
+=====================================*/
+.clients {
+    padding-block: var(--sectionPaddingBlock);
+}
+
+.clients p {
+    max-width: 800px;
+    text-align: center;
+    margin-inline: auto;
+    margin-top: 30px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: black;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.clients p span {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translatex(-50%);
+    color: gray;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.clients .brands {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
