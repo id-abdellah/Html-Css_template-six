@@ -80,7 +80,7 @@ body {
 
 @supports (scrollbar-color: white var(--mainColor) ) {
     * {
-        scrollbar-color: white var(--mainColor);
+        scrollbar-color: var(--mainColor) white;
         scrollbar-width: thin;
     }
 }
